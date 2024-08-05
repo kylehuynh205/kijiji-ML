@@ -45,6 +45,7 @@ if __name__ == '__main__':
         final_data = new_data
     else:
         old_data = pd.read_parquet('data_update_in/data_parquet.parquet').drop_duplicates(subset = 'url')
-        final_data = pd.concat([new_data,old_data]).drop_duplicates(subset = 'url')
-        
-    final_data.to_parquet('data_final/data_parquet.parquet')
+        final_data = pd.concat([old_data,new_data]).drop_duplicates(subset = 'url')
+    
+    
+    final_data.to_parquet('data_final/data_parquet.parquet', engine='fastparquet')

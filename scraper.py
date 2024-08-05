@@ -81,9 +81,9 @@ def scrape_page_write_json(page_num, first_run):
         page_hashes = hash_existing_data()
 
     if page_num != 1:
-        index_response = requests.get('https://www.kijiji.ca/b-cars-trucks/canada/page-{}/c174l0'.format(page_num))
+        index_response = requests.get('https://www.kijiji.ca/b-cars-trucks/canada/page-{}/c174l0?sort=dateDesc'.format(page_num))
     else: 
-        index_response = requests.get('https://www.kijiji.ca/b-cars-trucks/canada/c174l0')
+        index_response = requests.get('https://www.kijiji.ca/b-cars-trucks/canada/c174l0?sort=dateDesc')
     webpage_content = str(BeautifulSoup(index_response.content, 'html.parser'))
     page_data = []
     listings = get_listing_url(webpage_content)
