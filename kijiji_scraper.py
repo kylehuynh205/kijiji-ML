@@ -168,18 +168,6 @@ def merge_listings_and_scrape(model, year, page_hashes,first_run):
         scrape_listings_write_json(listings, first_run, page_hashes, model, year)
 
 
-def get_listing_url(webpage_content):
-    pattern = r'"listing-link" href="(\/v-cars-trucks\/[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\-._~:\/?#\[\]@!$&\'()*+,;=]+)"'
-    #\/v-cars-trucks\/[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\-._~:\/?#\[\]@!$&\'()*+,;=]+
-    #r'"listing-link" href=("\/[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\-._~:\/?#\[\]@!$&\'()*+,;=]+")'
-
-    #index_response = requests.get(url)
-    #webpage_content = str(BeautifulSoup(index_response.content, 'html.parser'))
-
-    # Search for the pattern in the HTML content
-    matches = re.findall(pattern, webpage_content, re.DOTALL)
-    
-    return matches
 
 
 
